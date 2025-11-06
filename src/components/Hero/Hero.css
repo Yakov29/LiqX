@@ -34,6 +34,11 @@
   border: none;
   cursor: pointer;
   transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__button:hover {
@@ -58,6 +63,17 @@
   animation: arrowMove 2s ease-in-out infinite;
   cursor: pointer;
 }
+
+.hero__os{
+  margin-top: 15px;
+  display: flex; 
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+
 
 @keyframes arrowMove {
   0%, 100% {

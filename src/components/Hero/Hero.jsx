@@ -1,11 +1,21 @@
 import Container from "../Container/Container";
 import "./Hero.css";
 import image from "../../images/logo.png";
-
-
+import { FaWindows, FaLinux, FaApple } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [platform, setPlatform] = useState("unknown");
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+
+    if (userAgent.includes("Win")) setPlatform("windows");
+    else if (userAgent.includes("Linux")) setPlatform("linux");
+    else if (userAgent.includes("Mac")) setPlatform("mac");
+  }, []);
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
 
@@ -19,13 +29,40 @@ const Hero = () => {
     }
   };
 
+  const renderButtonContent = () => {
+    switch (platform) {
+      case "windows":
+        return (
+          <>
+            Download <FaWindows />
+          </>
+        );
+      case "linux":
+        return (
+          <>
+            Not supported <FaLinux />
+          </>
+        );
+      case "mac":
+        return (
+          <>
+            Not supported <FaApple />
+          </>
+        );
+      default:
+        return "Detecting...";
+    }
+  };
+
   return (
     <section className="hero" id="home">
       <Container>
         <div className="hero__box">
-          <h1 className="hero__title" data-text='LiqX'>LiqX</h1>
+          <h1 className="hero__title" data-text="LiqX">
+            LiqX
+          </h1>
           <p className="hero__description">Your secure messaging platform.</p>
-          <button className="hero__button">Download</button>
+          <button className="hero__button">{renderButtonContent()}</button>
         </div>
         <div className="hero__image">
           <img className="hero__image-png" src={image} alt="" />

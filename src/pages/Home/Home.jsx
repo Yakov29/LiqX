@@ -5,6 +5,9 @@ import About from "../../components/About/About";
 import Developers from "../../components/Developers/Developers";
 import Safe from "../../components/Safe/Safe";
 
+
+
+
 const Home = () => {
   useEffect(() => {
     document.title = "LiqX | Home";

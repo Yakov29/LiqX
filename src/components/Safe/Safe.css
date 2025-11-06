@@ -32,12 +32,10 @@
 
   .safe__title {
     font-size: 22px;
-    text-align: center;
   }
 
   .safe__desctiption {
     font-size: 20px;
-    text-align: center;
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
