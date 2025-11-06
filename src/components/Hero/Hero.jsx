@@ -1,7 +1,7 @@
 import Container from "../Container/Container";
 import "./Hero.css";
 import image from "../../images/logo.png";
-import { FaWindows, FaLinux, FaApple } from "react-icons/fa";
+import { FaWindows, FaLinux, FaApple, FaAndroid } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
@@ -12,8 +12,10 @@ const Hero = () => {
     const userAgent = window.navigator.userAgent;
 
     if (userAgent.includes("Win")) setPlatform("windows");
-    else if (userAgent.includes("Linux")) setPlatform("linux");
+    else if (userAgent.includes("Linux") && !userAgent.includes("Android"))
+      setPlatform("linux");
     else if (userAgent.includes("Mac")) setPlatform("mac");
+    else if (userAgent.includes("Android")) setPlatform("android");
   }, []);
 
   const scrollToAbout = () => {
@@ -49,10 +51,18 @@ const Hero = () => {
             Not supported <FaApple />
           </>
         );
+      case "android":
+        return (
+          <>
+            Not supported <FaAndroid />
+          </>
+        );
       default:
         return "Detecting...";
     }
   };
+
+  const isDisabled = ["linux", "mac", "android"].includes(platform);
 
   return (
     <section className="hero" id="home">
@@ -62,7 +72,12 @@ const Hero = () => {
             LiqX
           </h1>
           <p className="hero__description">Your secure messaging platform.</p>
-          <button className="hero__button">{renderButtonContent()}</button>
+          <button
+            className={`hero__button ${isDisabled ? "hero__button--disabled" : ""}`}
+            disabled={isDisabled}
+          >
+            {renderButtonContent()}
+          </button>
         </div>
         <div className="hero__image">
           <img className="hero__image-png" src={image} alt="" />

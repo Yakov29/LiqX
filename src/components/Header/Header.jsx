@@ -1,10 +1,23 @@
 import Container from "../Container/Container";
 import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
-
 import "./Header.css";
+import { useEffect, useState } from "react";
+import { FaWindows, FaLinux, FaApple, FaAndroid } from "react-icons/fa";
 
 const Header = () => {
+  const [platform, setPlatform] = useState("unknown");
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+
+    if (userAgent.includes("Win")) setPlatform("windows");
+    else if (userAgent.includes("Linux") && !userAgent.includes("Android"))
+      setPlatform("linux");
+    else if (userAgent.includes("Mac")) setPlatform("mac");
+    else if (userAgent.includes("Android")) setPlatform("android");
+  }, []);
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
 
@@ -17,7 +30,8 @@ const Header = () => {
       console.warn('Элемент с ID "about" не найден на странице.');
     }
   };
-   const scrollToDevelopers = () => {
+
+  const scrollToDevelopers = () => {
     const developerSection = document.getElementById("developer");
 
     if (developerSection) {
@@ -29,18 +43,53 @@ const Header = () => {
       console.warn('Элемент с ID "developer" не найден на странице.');
     }
   };
-  const scrollToHome = () => {
-    const homeection = document.getElementById("home");
 
-    if (homeection) {
-      homeection.scrollIntoView({
+  const scrollToHome = () => {
+    const homeSection = document.getElementById("home");
+
+    if (homeSection) {
+      homeSection.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     } else {
-      console.warn('Элемент с ID "home не найден на странице.');
+      console.warn('Элемент с ID "home" не найден на странице.');
     }
   };
+
+  const renderButtonContent = () => {
+    switch (platform) {
+      case "windows":
+        return (
+          <>
+            Download <FaWindows />
+          </>
+        );
+      case "linux":
+        return (
+          <>
+            Not supported <FaLinux />
+          </>
+        );
+      case "mac":
+        return (
+          <>
+            Not supported <FaApple />
+          </>
+        );
+      case "android":
+        return (
+          <>
+            Not supported <FaAndroid />
+          </>
+        );
+      default:
+        return "Detecting...";
+    }
+  };
+
+  const isDisabled = ["linux", "mac", "android"].includes(platform);
+
   return (
     <header className="header">
       <Container>
@@ -59,7 +108,12 @@ const Header = () => {
           </li>
         </ul>
 
-        <button className="header__button">Download</button>
+        <button
+          className={`header__button ${isDisabled ? "header__button--disabled" : ""}`}
+          disabled={isDisabled}
+        >
+          {renderButtonContent()}
+        </button>
       </Container>
     </header>
   );
