@@ -79,9 +79,9 @@ const Hero = () => {
             {renderButtonContent()}
           </button>
         </div>
-        <div className="hero__image">
+        {/* <div className="hero__image">
           <img className="hero__image-png" src={image} alt="" />
-        </div>
+        </div> */}
       </Container>
       <button onClick={scrollToAbout} className="hero__arrow">
         <FaArrowDown />

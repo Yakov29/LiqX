@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   const scrollToDevelopers = () => {
-    const developerSection = document.getElementById("developer");
+    const developerSection = document.getElementById("developers");
 
     if (developerSection) {
       developerSection.scrollIntoView({
