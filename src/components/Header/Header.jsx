@@ -17,6 +17,30 @@ const Header = () => {
       console.warn('Элемент с ID "about" не найден на странице.');
     }
   };
+   const scrollToDevelopers = () => {
+    const developerSection = document.getElementById("developer");
+
+    if (developerSection) {
+      developerSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      console.warn('Элемент с ID "developer" не найден на странице.');
+    }
+  };
+  const scrollToHome = () => {
+    const homeection = document.getElementById("home");
+
+    if (homeection) {
+      homeection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      console.warn('Элемент с ID "home не найден на странице.');
+    }
+  };
   return (
     <header className="header">
       <Container>
@@ -25,13 +49,13 @@ const Header = () => {
         </div>
         <ul className="header__list">
           <li className="header__item">
-            <Link className="header__link">Home</Link>
+            <Link onClick={scrollToHome} className="header__link">Home</Link>
           </li>
           <li className="header__item">
             <Link onClick={scrollToAbout} className="header__link">About</Link>
           </li>
           <li className="header__item">
-            <Link className="header__link">Developers</Link>
+            <Link onClick={scrollToDevelopers} className="header__link">Developers</Link>
           </li>
         </ul>
 

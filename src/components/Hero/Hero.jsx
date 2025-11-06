@@ -20,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <Container>
         <div className="hero__box">
           <h1 className="hero__title" data-text='LiqX'>LiqX</h1>
