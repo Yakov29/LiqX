@@ -49,13 +49,17 @@ const DownloadForm = () => {
             const buttonText = item.available ? "Download" : "Unavailable";
             const isDisabled = !item.available;
 
+            // Определяем класс: если isDisabled === true, добавляем 'download__button--disabled'
+            const buttonClass = `download__button ${isDisabled ? 'download__button--disabled' : ''}`;
+
             return (
               <li className="download__item" key={item.name}>
                 {item.icon}
                 <h4 className="download__name">{item.name}</h4>
                 
                 <button 
-                  className="download__button"
+                  // Используем переменную buttonClass
+                  className={buttonClass}
                   disabled={isDisabled} 
                 >
                   {buttonText}

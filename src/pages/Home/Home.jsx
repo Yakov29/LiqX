@@ -4,7 +4,7 @@ import Hero from "../../components/Hero/Hero";
 import About from "../../components/About/About";
 import Developers from "../../components/Developers/Developers";
 import Safe from "../../components/Safe/Safe";
-
+import Footer from "../../components/Footer/Footer";
 
 
 
@@ -18,6 +18,7 @@ const Home = () => {
       <About />
       <Safe />
       <Developers />
+      <Footer/>
     </main>
   );
 };

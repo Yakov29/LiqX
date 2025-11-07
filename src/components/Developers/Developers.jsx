@@ -15,7 +15,7 @@ const Developers = () => {
     {
       avatar: "https://avatars.githubusercontent.com/u/108018683?v=4",
       name: "Yakov29",
-      do: "LiqX Web Site",
+      do: "LiqX Web Application",
       link: 'https://github.com/Yakov29'
     },
   ];
