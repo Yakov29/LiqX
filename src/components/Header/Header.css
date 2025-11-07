@@ -46,7 +46,7 @@
   position: fixed;
   top: 10px;
   right: 10px;
-  z-index: 10000; /* Увеличен Z-index для кнопки закрытия */
+  z-index: 10000;
   transition: color 0.2s ease-in-out; 
 }
 
@@ -111,6 +111,142 @@
   display: flex;
 }
 
+/* --- Стили для модального окна (Плавные и улучшенные) --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: background-color 0.3s ease; 
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 0 5px rgba(0, 0, 0, 0.05); 
+    position: relative;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    
+    transform: scale(0.95);
+    opacity: 0;
+    animation: modal-fade-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes modal-fade-in {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.modal-close:hover {
+    color: #000;
+    /* transform: rotate(90deg); */
+}
+
+.modal-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.modal-email-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f7f7f7; 
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.2s;
+}
+
+.modal-email-container:hover {
+    border-color: #ccc;
+}
+
+.modal-email {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0; 
+}
+
+.modal-copy-btn {
+    padding: 10px 18px;
+    font-size: 16px;
+    color: white;
+    background-color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, min-width 0.1s;
+    margin-left: 15px;
+    min-width: 90px;
+    font-weight: 600;
+}
+
+.modal-copy-btn:hover {
+    background-color: #333;
+}
+
+.modal-copy-btn--success {
+    background-color: #28a745;
+}
+
+.modal-copy-btn:active {
+    transform: scale(0.96);
+}
+
+.modal-info {
+    font-size: 14px;
+    color: #888;
+    margin-top: 15px;
+}
+
+.modal-info a {
+    color: #0056b3;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.modal-info a:hover {
+    color: #003a75;
+}
+
+
+/* --- Медиа-запросы --- */
+
 @media (max-width: 768px) {
   .header .container {
     justify-content: space-between;
@@ -146,7 +282,7 @@
     
     transition: transform 0.3s ease-out, visibility 0.3s 0.3s; 
     
-    z-index: 9999; /* Новый, высокий Z-index для меню */
+    z-index: 9999;
     gap: 0;
   }
   

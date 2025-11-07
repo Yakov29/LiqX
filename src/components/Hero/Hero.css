@@ -26,6 +26,8 @@
 .hero__description {
   font-size: 20px;
   margin-top: 15px;
+  /* ДОБАВЛЕНА АНИМАЦИЯ */
+  animation: descriptionMove 4s ease-in-out infinite;
 }
 
 .hero__button {
@@ -87,6 +89,16 @@
   }
 }
 
+/* НОВАЯ АНИМАЦИЯ ДЛЯ ОПИСАНИЯ */
+@keyframes descriptionMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Смещение на 5 пикселей вверх */
+  }
+}
+
 @media (max-width: 768px) {
   .hero .container {
     flex-direction: column;
@@ -98,6 +110,8 @@
 
   .hero__description {
     font-size: 18px;
+    /* Уменьшим амплитуду на мобильных, если необходимо */
+    /* animation: descriptionMove 4s ease-in-out infinite; */ 
   }
 
   .hero__button {
