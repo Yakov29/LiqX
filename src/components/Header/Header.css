@@ -5,8 +5,9 @@
   right: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  z-index: 1;
+  z-index: 10;
   background-color: rgb(245, 245, 245);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -24,21 +25,55 @@
   gap: 50px;
   margin-left: auto;
   margin-right: auto;
+  list-style: none;
+  padding: 0;
+}
+
+.header__item {
+}
+
+.header__item--mobile-button {
+  display: none;
+}
+
+.header__close-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #333;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10000; /* Увеличен Z-index для кнопки закрытия */
+  transition: color 0.2s ease-in-out; 
+}
+
+.header__close-btn:hover {
+  color: #000;
 }
 
 .header__link {
+  background: none;
+  border: none;
+  cursor: pointer;
   font-size: 24px;
   color: #001;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
 }
 
 .header__link:hover {
-  color: rgb(112, 180, 39);
+  background-color: #e0e0e0;
+  color: #000;
 }
 
 .header__button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 5px;
@@ -50,17 +85,33 @@
   font-weight: bolder;
   border: none;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .header__button:hover {
-  background-color: rgb(112, 180, 39);
+  background-color: #444444;
+}
+
+.header__button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.header__burger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #000;
+  z-index: 101;
+}
+
+.header__button--desktop {
+  display: flex;
 }
 
 @media (max-width: 768px) {
-  .header__list {
-    display: none;
-  }
-
   .header .container {
     justify-content: space-between;
   }
@@ -70,17 +121,89 @@
     height: 45px;
   }
 
-  .header__button {
-    font-size: 18px;
-    padding: 5px 20px;
+  .header__list {
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    right: 0; 
+    height: 100vh;
+    width: 100%; 
+    max-width: none;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    justify-content: flex-start;
+    
+    background-color: rgba(245, 245, 245, 0.95);
+    
+    padding: 100px 20px 20px 20px;
+    
+    box-shadow: none;
+    
+    transform: translateX(100%);
+    visibility: hidden;
+    
+    transition: transform 0.3s ease-out, visibility 0.3s 0.3s; 
+    
+    z-index: 9999; /* Новый, высокий Z-index для меню */
+    gap: 0;
+  }
+  
+  .header__list::before {
+    content: none;
+  }
+  
+  .header__list--open {
+    transform: translateX(0); 
+    visibility: visible;
+    transition: transform 0.3s ease-out, visibility 0s;
+  }
+  
+  .header__list > * {
+      z-index: 20;
+      position: relative;
+  }
+
+  .header__close-btn {
+    display: block;
+  }
+
+  .header__item {
+    margin: 15px 0;
+  }
+  
+  .header__item:not(.header__item--mobile-button) {
+    padding-right: 20px;
+  }
+
+  .header__link {
+    font-size: 20px;
+  }
+
+  .header__burger {
+    display: block;
+    margin-left: 20px;
+  }
+
+  .header__button--desktop {
+    display: none;
+  }
+
+  .header__item--mobile-button {
+    display: list-item;
+    margin-top: 30px;
+    padding-right: 20px;
+  }
+
+  .header__item--mobile-button .header__button {
+    font-size: 20px;
+    padding: 10px 30px;
+    width: auto;
   }
 }
 
 @media (max-width: 480px) {
-  .header__list {
-    display: none;
-  }
-
   .header .container {
     flex-direction: row;
     justify-content: space-between;
@@ -91,8 +214,7 @@
     height: 40px;
   }
 
-  .header__button {
-    font-size: 16px;
-    padding: 5px 15px;
+  .header__burger {
+    font-size: 28px;
   }
 }
