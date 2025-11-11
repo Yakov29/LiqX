@@ -163,7 +163,7 @@ const Header = () => {
                 </button>
             </div>
             
-            <p className="modal-info">You can also use mailto: <a href={`mailto:${SUPPORT_EMAIL}`}>link</a></p>
+          <a className="modal-info" href={`mailto:${SUPPORT_EMAIL}`}>You can also use mailto</a>
           </div>
         </div>
       )}
