@@ -1,12 +1,13 @@
 import Container from "../Container/Container";
 import logo from "../../images/logo.png";
-import { useEffect, useState } from "react"; // Импортируем хуки
-import { FaWindows, FaLinux, FaApple, FaAndroid } from "react-icons/fa"; // Импортируем иконки
+import { useEffect, useState } from "react";
+import { FaWindows, FaTelegramPlane } from "react-icons/fa";
 
 import "./Footer.css";
 
+const TELEGRAM_URL = "https://t.me/liqxcommunity";
+
 const Footer = () => {
-  // Логика определения платформы (скопирована из Header)
   const [platform, setPlatform] = useState("unknown");
 
   useEffect(() => {
@@ -18,40 +19,12 @@ const Footer = () => {
     else if (userAgent.includes("Android")) setPlatform("android");
   }, []);
 
-  // Функция рендеринга контента кнопки (скопирована из Header)
   const renderButtonContent = () => {
-    switch (platform) {
-      case "windows":
-        return (
-          <>
-            Download <FaWindows />
-          </>
-        );
-      case "linux":
-        return (
-          <>
-            Not supported <FaLinux />
-          </>
-        );
-      case "mac":
-        return (
-          <>
-            Not supported <FaApple />
-          </>
-        );
-      case "android":
-        return (
-          <>
-            Not supported <FaAndroid />
-          </>
-        );
-      default:
-        return "Detecting...";
+    if (platform === "windows") {
+      return <>Download <FaWindows /></>;
     }
+    return "Download";
   };
-
-  // Проверка состояния кнопки (скопирована из Header)
-  const isDisabled = ["linux", "mac", "android"].includes(platform);
 
   return (
     <footer className="footer">
@@ -61,18 +34,24 @@ const Footer = () => {
             <img className="footer__logo-img" src={logo} alt="" />
           </div>
 
-          {/* Добавленная кнопка Download */}
-          <button
-            className={`footer__button ${
-              isDisabled ? "footer__button--disabled" : ""
-            }`}
-            disabled={isDisabled}
-            onClick={() => {
-              if (!isDisabled) window.location.href = "/download";
-            }}
-          >
-            {renderButtonContent()}
-          </button>
+          <div className="footer__buttons">
+            <button
+              className="footer__button"
+              onClick={() => {
+                window.location.href = "/download";
+              }}
+            >
+              {renderButtonContent()}
+            </button>
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__button footer__button--telegram"
+            >
+              Join <FaTelegramPlane />
+            </a>
+          </div>
         </div>
       </Container>
     </footer>

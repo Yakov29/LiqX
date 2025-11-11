@@ -1,8 +1,10 @@
 import Container from "../Container/Container";
 import "./Hero.css";
-import { FaWindows, FaLinux, FaApple, FaAndroid } from "react-icons/fa";
+import { FaWindows, FaTelegramPlane } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+
+const TELEGRAM_URL = "https://t.me/liqxcommunity";
 
 const Hero = () => {
   const [platform, setPlatform] = useState("unknown");
@@ -26,21 +28,11 @@ const Hero = () => {
   };
 
   const renderButtonContent = () => {
-    switch (platform) {
-      case "windows":
-        return <>Download <FaWindows /></>;
-      case "linux":
-        return <>Not supported <FaLinux /></>;
-      case "mac":
-        return <>Not supported <FaApple /></>;
-      case "android":
-        return <>Not supported <FaAndroid /></>;
-      default:
-        return "Detecting...";
+    if (platform === "windows") {
+      return <>Download <FaWindows /></>;
     }
+    return "Download";
   };
-
-  const isDisabled = ["linux", "mac", "android"].includes(platform);
 
   return (
     <section className="hero" id="home">
@@ -48,15 +40,25 @@ const Hero = () => {
         <div className="hero__box">
           <h1 className="hero__title" data-text="LiqX">LiqX</h1>
           <p className="hero__description">Your secure messaging platform.</p>
-          <button
-            className={`hero__button ${isDisabled ? "hero__button--disabled" : ""}`}
-            disabled={isDisabled}
-            onClick={() => {
-              if (!isDisabled) window.location.href = "/download";
-            }}
-          >
-            {renderButtonContent()}
-          </button>
+          <div className="hero__buttons">
+            <button
+              className="hero__button"
+              onClick={() => {
+                window.location.href = "/download";
+              }}
+            >
+              {renderButtonContent()}
+            </button>
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__button hero__button--telegram"
+            >
+              Join <FaTelegramPlane />
+            </a>
+          </div>
+          <p className="hero__community-subtitle">Join our community!</p>
         </div>
       </Container>
       <button onClick={scrollToAbout} className="hero__arrow">

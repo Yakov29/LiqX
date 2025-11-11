@@ -22,6 +22,7 @@
 
 .header__list {
   display: flex;
+  align-items: center;
   gap: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -68,6 +69,24 @@
 .header__link:hover {
   background-color: #e0e0e0;
   color: #000;
+}
+
+.header__telegram-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #0088cc;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.header__telegram-button:hover {
+  background-color: #00aaff;
+  transform: scale(1.1);
 }
 
 .header__button {

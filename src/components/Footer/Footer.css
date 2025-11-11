@@ -1,3 +1,8 @@
+.footer__buttons {
+  display: flex;
+  gap: 20px;
+}
+
 .footer__button {
   display: flex;
   align-items: center;
@@ -14,6 +19,7 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
+  text-decoration: none;
 }
 
 .footer__button:hover {
@@ -23,6 +29,14 @@
 .footer__button--disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.footer__button--telegram {
+  background-color: #0088cc;
+}
+
+.footer__button--telegram:hover {
+  background-color: #00aaff;
 }
 
 .footer__content-wrapper {
@@ -50,8 +64,14 @@
         text-align: center;
     }
 
+    .footer__buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
     .footer__button {
         font-size: 20px;
         padding: 8px 25px;
+        justify-content: center;
     }
 }

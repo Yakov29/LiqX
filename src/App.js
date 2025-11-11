@@ -3,6 +3,8 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import Download from "./pages/Download/Download";
+import TelegramButton from "./components/TelegramButton/TelegramButton";
+import Footer from "./components/Footer/Footer";
 
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
@@ -18,6 +20,8 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
+      <TelegramButton />
+        <Footer/>
     </div>
   );
 }

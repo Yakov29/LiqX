@@ -17,7 +17,6 @@ const Home = () => {
       <About />
       <Safe />
       <Developers />
-      <Footer/>
     </main>
   );
 };

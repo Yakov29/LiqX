@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd0f0c72-ea81-4ff2-8609-393e066c452f" name="Changes" comment="" />
+    <list default="true" id="cd0f0c72-ea81-4ff2-8609-393e066c452f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/TelegramButton/TelegramButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TelegramButton/TelegramButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DownloadForm/DownloadForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DownloadForm/DownloadForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DownloadForm/DownloadForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DownloadForm/DownloadForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/Hero.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/Hero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +68,7 @@
       <updated>1762374277868</updated>
       <workItem from="1762374278981" duration="434000" />
       <workItem from="1762497012697" duration="116000" />
+      <workItem from="1762866690735" duration="2005000" />
     </task>
     <servers />
   </component>

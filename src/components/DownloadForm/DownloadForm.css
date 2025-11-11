@@ -1,6 +1,7 @@
 .download {
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 130px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,31 +63,26 @@
   padding: 10px 25px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s, opacity 0.3s; /* Добавлено для плавности */
+  transition: background-color 0.3s, opacity 0.3s;
 }
 
 .download__button:hover {
   background-color: #444444;
 }
 
-/* --- Стили для недоступной кнопки --- */
-
 .download__button--disabled,
 .download__button[disabled] {
-  background-color: #cccccc; /* Светло-серый фон */
-  color: #666666; /* Темно-серый текст */
-  opacity: 0.7; /* Снижение прозрачности */
-  cursor: not-allowed; /* Курсор "запрещено" */
-  pointer-events: none; /* Запрет взаимодействия */
+  background-color: #cccccc;
+  color: #666666;
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
-/* Убираем эффект hover для отключенной кнопки */
 .download__button[disabled]:hover {
-  background-color: #cccccc; /* Сохраняем серый фон */
+  background-color: #cccccc;
   opacity: 0.7;
 }
-
-/* --- Медиа-запросы --- */
 
 @media (max-width: 768px) {
   .download__title {
