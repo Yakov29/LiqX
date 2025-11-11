@@ -1,8 +1,7 @@
 import Container from "../Container/Container";
 import "./Developers.css"
-
-import { FaGithub } from "react-icons/fa";
-
+// Импорт FaGithub, который вызывал ошибку "is defined but never used", 
+// здесь не указан, но я предполагаю, что его нужно удалить, если он есть.
 
 const Developers = () => {
   const developers = [
@@ -34,7 +33,15 @@ const Developers = () => {
               <img className="developers__avatar" src={developer.avatar} alt={developer.name} /> 
               <h5 className="developers__name">{developer.name}</h5>
               <p className="developers__do">{developer.do}</p>
-              <a className="developers__link" target="_blank" href={developer.link}>Github</a>
+              {/* ИСПРАВЛЕНО: Добавлен rel="noopener noreferrer" для устранения ошибки безопасности */}
+              <a 
+                className="developers__link" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                href={developer.link}
+              >
+                Github
+              </a>
             </li>
           ))}
         </ul>
